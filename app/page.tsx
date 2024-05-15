@@ -332,7 +332,7 @@ export default function Home() {
       </MotionSection>
       <MotionSection
         variants={variants}
-        className="border rounded-lg p-4 bg-accent"
+        className="border rounded-lg p-4 bg-accent text-sm"
       >
         <p>
           <span className="font-bold">Note</span>: The initial draft for this
