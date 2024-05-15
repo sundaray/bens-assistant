@@ -79,6 +79,6 @@
   }
 
   p {
-    @apply text-neutral-700;
+    @apply text-neutral-700 leading-7;
   }
 }
