@@ -1,8 +1,58 @@
+import { MotionMain, MotionSection } from "@/components/use-client";
+import Image from "next/image";
+import Ben from "@/images/ben-tossel.jpeg";
+
+const variants = {
+  initial: { opacity: 0, y: 10 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 export default function Home() {
   return (
-    <main className="flex-1 container max-w-3xl space-y-8 my-24">
-      <section>
-        <h2>Can you introduce yourself?</h2>
+    <MotionMain
+      variants={variants}
+      initial="initial"
+      animate="animate"
+      className="flex-1 container max-w-3xl space-y-8 my-24"
+    >
+      <MotionSection variants={variants} className="text-sm">
+        <p>
+          <span className="font-bold">Interviewer:</span> Ben Tossel
+        </p>
+        <p>
+          <span className="font-bold">Interviewee:</span> Hemanta Sundaray,{" "}
+          <address className="inline-block">
+            <a href="mailto:rawgrittt@gmail.com">rawgrittt@gmail.com, </a>
+          </address>{" "}
+          <a
+            href="https://twitter.com/hemanta_io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline hover:no-underline underline-offset-2"
+          >
+            @hemanta_io
+          </a>
+        </p>
+        <p>
+          <span className="font-bold">Role:</span> Assistant who uses AI
+        </p>
+      </MotionSection>{" "}
+      <MotionSection variants={variants}>
+        <div className="flex gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>Can you introduce yourself?</h2>
+        </div>
         <p className="mb-4">
           My name is Hemanta Sundaray. I&apos;m 37 years old, a husband, and a
           dad to a 2-year-old son. I live in Odisha, a state in the eastern part
@@ -13,14 +63,31 @@ export default function Home() {
           various functions such as design, product merchandising, buying, and
           retail operations. However, in June 2022, I decided to quit and pursue
           programming. Since then, I have been freelancing as a technical writer
-          for an edtech platform and building side projects, mostly AI wrappers.
+          for{" "}
+          <a
+            href="https://kodekloud.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline hover:no-underline underline-offset-2"
+          >
+            KodeKloud
+          </a>
+          , an edtech platform that offers courses on DevOps and building side
+          projects, mostly AI wrappers.
         </p>
-      </section>
-      <section>
-        <h2>
-          That&apos;s great that you know how to code! Where can I see some of
-          your AI projects?
-        </h2>
+      </MotionSection>
+      <MotionSection variants={variants}>
+        <div className="flex items-center gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>
+            That&apos;s great that you know how to code! Where can I see some of
+            your AI projects?
+          </h2>
+        </div>
         <p className="mb-4">
           Yes, I&apos;m a fullstack developer with a focus on modern web
           technologies. My primary tech stack includes TypeScript, React (via
@@ -37,7 +104,7 @@ export default function Home() {
               href="https://www.yapprz.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 underline hover:no-underline"
+              className="text-blue-600 underline hover:no-underline underline-offset-2"
             >
               yapprz.com
             </a>
@@ -49,7 +116,7 @@ export default function Home() {
               href="https://www.excelai.pro/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 underline hover:no-underline"
+              className="text-blue-600 underline hover:no-underline underline-offset-2"
             >
               excelai.pro
             </a>
@@ -61,7 +128,7 @@ export default function Home() {
               href="https://www.makeaudio.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 underline hover:no-underline"
+              className="text-blue-600 underline hover:no-underline underline-offset-2"
             >
               makeaudio.app
             </a>
@@ -73,13 +140,20 @@ export default function Home() {
           various OpenAI APIs, including chat completion, text to speech, and
           vision.
         </p>
-      </section>
-      <section>
-        <h2>
-          What experience do you have using AI tools to automate tasks and
-          workflows? Can you provide examples of how you&apos;ve done this
-          successfully?
-        </h2>
+      </MotionSection>
+      <MotionSection variants={variants}>
+        <div className="flex items-center gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>
+            What experience do you have using AI tools to automate tasks and
+            workflows? Can you provide examples of how you&apos;ve done this
+            successfully?
+          </h2>
+        </div>
         <p className="mb-4">
           I have extensive experience using AI tools to automate tasks and
           streamline workflows, particularly in the areas of coding, research,
@@ -112,9 +186,11 @@ export default function Home() {
           help.
         </p>
         <p className="mb-4">
-          In addition to ChatGPT and Claude, I&apos;ve also explored Gemini Pro,
-          but found that it didn&apos;t consistently deliver the same level of
-          quality and insight.
+          In addition to <span className="font-bold">ChatGPT</span> and{" "}
+          <span className="font-bold">Claude</span>, I&apos;ve also explored{" "}
+          <span className="font-bold">Gemini Pro</span>, but found that it
+          didn&apos;t consistently deliver the same level of quality and
+          insight.
         </p>
         <p className="mb-4">
           Throughout my journey with AI tools, I&apos;ve learned to quickly
@@ -123,13 +199,27 @@ export default function Home() {
           ability to rapidly get up to speed on any AI tools that would be
           helpful in supporting your needs as an assistant.
         </p>
-      </section>
-      <section>
-        <h2>Where are you located?</h2>
+      </MotionSection>
+      <MotionSection variants={variants}>
+        <div className="flex items-center gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>Where are you located?</h2>
+        </div>
         <p>I&apos;m located in India. </p>
-      </section>
-      <section>
-        <h2>Does that have a good crossover with UK time?</h2>
+      </MotionSection>
+      <MotionSection variants={variants}>
+        <div className="flex items-center gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>Does that have a good crossover with UK time?</h2>
+        </div>
         <p className="mb-4">
           India Standard Time (IST) is 4 hours and 30 minutes ahead of the UK.
           Let&apos;s consider a typical UK workday of 8 hours from 10 AM to 7
@@ -141,16 +231,23 @@ export default function Home() {
           <li>Your 7 PM end of day is 11:30 PM my time.</li>
         </ul>
         <p className="mb-4">
-          So for the majority of your workday,I&apos;m awake and available.
+          So for the majority of your workday, I&apos;m awake and available.
           I&apos;m confident that my location won&apos;t be an obstacle, and
           I&apos;m committed to being responsive and accessible during the core
           hours that matter most for your workflow.
         </p>
-      </section>
-      <section>
-        <h2>
-          Are you aware what kind of tasks you will be doing as an assistant?
-        </h2>
+      </MotionSection>
+      <MotionSection variants={variants}>
+        <div className="flex items-center gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>
+            Are you aware what kind of tasks you will be doing as an assistant?
+          </h2>
+        </div>
         <p className="mb-4">
           Yes, I carefully reviewed the task list you shared on X, and I have a
           clear understanding of what the role entails. From what I gathered,
@@ -182,19 +279,23 @@ export default function Home() {
             areas.
           </li>
         </ul>
-      </section>
-      <section>
-        <h2>Why are you perfect for this job?</h2>
+      </MotionSection>
+      <MotionSection variants={variants}>
+        <div className="flex items-center gap-4 mb-4">
+          <Image
+            src={Ben}
+            className="size-8 rounded-full object-cover object-center"
+            alt="Interviewer avatar"
+          />
+          <h2>Why are you perfect for this job?</h2>
+        </div>
         <p className="mb-4">
           I believe I&apos;m an excellent fit for this role for several reasons.
           First and foremost, I&apos;m a heavy AI user, which is one of the core
           requirements for this position. As I&apos;ve shared, I&apos;ve used AI
-          in various ways to enhance my productivity in writing and coding. This
-          hands-on experience has given me a deep understanding of how to
-          effectively leverage AI tools to drive efficiency and deliver
-          high-quality work.
+          in various ways to enhance my productivity in writing and coding.
         </p>
-        <p>
+        <p className="mb-4">
           Moreover, my background as a technical writer aligns perfectly with
           the role&apos;s emphasis on drafting and editing different types of
           written content. You can check out my technical writing via this link{" "}
@@ -202,12 +303,43 @@ export default function Home() {
             href="https://www.makeaudio.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 underline hover:no-underline"
+            className="text-blue-600 underline hover:no-underline underline-offset-2"
           >
             https://www.hemantasundaray.com/technical-writing
           </a>
         </p>
-      </section>
-    </main>
+        <p className="mb-4">
+          In addition to my writing skills, I&apos;m an advanced Excel and
+          Google Sheets user. This&apos;ll help me efficiently handle data
+          entry, bookkeeping, and other administrative tasks.
+        </p>
+        <p className="mb-4">
+          Beyond these technical skills, I possess the soft skills and work
+          ethic needed to thrive in this role. I&apos;m detail-oriented,
+          proactive, and a self-starter who requires minimal supervision. I
+          consistently go above and beyond to deliver exceptional value and
+          drive positive results.
+        </p>
+        <p className="mb-4">
+          If you have any further questions, I am just an email away. Please
+          write back to me at{" "}
+          <address className="inline-block">
+            <a href="mailto:rawgrittt@gmail.com">rawgrittt@gmail.com</a>
+          </address>{" "}
+          .
+        </p>
+        <p>Thank you so much for your consideration.</p>
+      </MotionSection>
+      <MotionSection
+        variants={variants}
+        className="border rounded-lg p-4 bg-accent"
+      >
+        <p>
+          <span className="font-bold">Note</span>: The initial draft for this
+          interview was written by me. It was then refined and optimized for
+          clarity and flow using Claude Opus 3.
+        </p>
+      </MotionSection>
+    </MotionMain>
   );
 }
